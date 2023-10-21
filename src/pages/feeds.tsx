@@ -5,10 +5,23 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getAuth, signOut } from "firebase/auth";
-import React from "react";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 
 export default function Feeds() {
+
+    const [email,setEmail] = useState<string>("")
+
+    useEffect(()=>{
+        checkUserAuth()
+    },[])
+
+    const checkUserAuth = async ()=>{
+        const auth=getAuth(app);
+        onAuthStateChanged(auth,(user:any)=>{
+            setEmail(user?.email)
+        })
+    }
 
     const signOutuser = async ()=>{
         const auth = getAuth(app);
@@ -30,6 +43,7 @@ export default function Feeds() {
         <div className="px-4 py-4 text-3xl font-bold w-full border-b-2 border-gray-700">
           Feeds
         </div>
+        <label className="">{email}</label>
       </div>
       <div className="flex flex-col w-1/3 h-screen bg-black "></div>
     </div>
