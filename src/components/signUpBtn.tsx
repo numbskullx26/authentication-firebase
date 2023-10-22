@@ -15,9 +15,9 @@ function signUpBtn() {
     const auth = getAuth(app);
     createUserWithEmailAndPassword(auth, email, password).then(() => {
       console.log("created user");
-      const res = axios.post("http://localhost:8080/createUser", {
+      const res = axios.post("http://localhost:8080", {
         username: `${username}`,
-        email: `${email}`,
+        email: `{email}`,
       });
       console.log(res);
       router.push("/");
