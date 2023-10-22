@@ -30,6 +30,19 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+app.get("/getUser/:email", (req, res) => {
+  const email = req.params.email;
+  console.log(req.params)
+  const query = `SELECT username FROM users WHERE email='${email}'`;
+  pool.query(query, (error, result) => {
+    if (error) {
+      throw error;
+    }
+
+    res.status(200).send(result.rows);
+  });
+});
+
 app.post("/createUser", (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
