@@ -28,7 +28,7 @@ app.use(
 
 app.get("/", (req, res) => {
   res.send("hello world");
-});
+})
 
 app.get("/getUser/:email", (req, res) => {
   const email = req.params.email;
