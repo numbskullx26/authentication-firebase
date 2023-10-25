@@ -9,6 +9,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CreatePost from "@/components/createPost";
+import ContentComponent from "@/components/contentComponent.";
 
 export default function Feeds() {
   const [email, setEmail] = useState("");
@@ -67,10 +68,11 @@ export default function Feeds() {
         </div>
         <label className="mx-5 my-5">{username}</label>
         <div
-          className="w-full h-full flex flex-row bg-black border-t-2 border-b-2 border-gray-700
+          className="w-full h-full flex flex-col bg-black border-t-2 border-b-2 border-gray-700
         "
         >
           <CreatePost />
+          <ContentComponent/>
         </div>
       </div>
       <div className="flex flex-col w-1/3 h-screen bg-black "></div>
