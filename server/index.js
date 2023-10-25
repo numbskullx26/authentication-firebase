@@ -23,16 +23,27 @@ app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: true,
-  });
+  })
 );
 
 app.get("/", (req, res) => {
   res.send("hello world");
-})
+});
+
+app.get("/getAllPosts", (req, res) => {
+  const query = `SELECT * FROM post`;
+  pool.query(query, (error, result) => {
+    if (error) {
+      throw error;
+    }
+    console.log(result.rows);
+    res.status(200).send(result.rows);
+  });
+});
 
 app.get("/getUser/:email", (req, res) => {
   const email = req.params.email;
-  console.log(req.params)
+  console.log(req.params);
   const query = `SELECT username FROM users WHERE email='${email}'`;
   pool.query(query, (error, result) => {
     if (error) {
