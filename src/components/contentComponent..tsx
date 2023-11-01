@@ -28,10 +28,10 @@ export default function ContentComponent() {
               {/* <h1 className="text-white-1 font-sans font-strongbold text-xl">Username: </h1> */}
               <div className="flex flex-col">
                 <h1 className="text-white-600 font-sans font-bold text-xl px-1 py-4">
-                  {content.username}
+                  {content?.username}
                 </h1>
-                <div className="flex flex-row bg-white text-black font-sans font-bold rounded-full border border-4 border-pink-600 px-5 py-8 my-4 justify-center">
-                  {content.content}
+                <div className="flex flex-row bg-white text-black font-sans font-bold rounded-full border border-4 border-gray-700 px-5 py-8 my-4 justify-center">
+                  {content?.post}
                 </div>
               </div>
             </div>

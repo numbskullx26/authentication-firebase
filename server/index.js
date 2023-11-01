@@ -54,6 +54,11 @@ app.get("/getUser/:email", (req, res) => {
   });
 });
 
+// app.post("/likePosts",(req,res)=>{
+//   const username= req.body.username;
+//   const post =
+// }).
+
 app.post("/createUser", (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
@@ -70,7 +75,7 @@ app.post("/createUser", (req, res) => {
 app.post("/createPost", (req, res) => {
   const username = req.body.username;
   const content = req.body.content;
-  const query = `INSERT INTO post (username,content) VALUES ('${username}','${content}')`;
+  const query = `INSERT INTO post (username,post) VALUES ('${username}','${content}')`;
 
   pool.query(query, (error, result) => {
     if (error) {
