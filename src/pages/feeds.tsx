@@ -29,7 +29,7 @@ export default function Feeds() {
         `http://localhost:8080/getUser/${user?.email}`
       );
       console.log(result);
-      setUsername(result.data[0].username);
+      setUsername(result.data[0]?.username);
     });
   };
 
@@ -72,7 +72,7 @@ export default function Feeds() {
         "
         >
           <CreatePost />
-          <ContentComponent/>
+          <ContentComponent />
         </div>
       </div>
       <div className="flex flex-col w-1/3 h-screen bg-black "></div>

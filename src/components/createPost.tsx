@@ -20,7 +20,7 @@ export default function CreatePost() {
         `http://localhost:8080/getUser/${user?.email}`
       );
       console.log(userdata);
-      setUsername(userdata.data[0].username);
+      setUsername(userdata.data[0]?.username);
     });
   };
 
