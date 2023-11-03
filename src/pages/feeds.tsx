@@ -72,7 +72,7 @@ export default function Feeds() {
         "
         >
           <CreatePost />
-          <ContentComponent />
+          <ContentComponent/>
         </div>
       </div>
       <div className="flex flex-col w-1/3 h-screen bg-black "></div>
